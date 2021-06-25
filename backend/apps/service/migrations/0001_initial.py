@@ -7,38 +7,58 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='Chronicle',
+            name="Chronicle",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('min_timestamp', models.DateTimeField()),
-                ('max_timestamp', models.DateTimeField()),
-                ('aircraft', models.CharField(max_length=100)),
-                ('status', models.SmallIntegerField(choices=[('Open', 1), ('Closed', 2)], default=1)),
-                ('unique_id', models.CharField(max_length=255)),
-                ('created', models.DateTimeField(auto_now_add=True)),
-                ('updated', models.DateTimeField(auto_now=True)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("min_timestamp", models.DateTimeField()),
+                ("max_timestamp", models.DateTimeField()),
+                ("aircraft", models.CharField(max_length=100)),
+                (
+                    "status",
+                    models.SmallIntegerField(
+                        choices=[("Open", 1), ("Closed", 2)], default=1
+                    ),
+                ),
+                ("unique_id", models.CharField(max_length=255)),
+                ("created", models.DateTimeField(auto_now_add=True)),
+                ("updated", models.DateTimeField(auto_now=True)),
             ],
             options={
-                'verbose_name': 'Chronicle',
-                'verbose_name_plural': 'Chronicles',
+                "verbose_name": "Chronicle",
+                "verbose_name_plural": "Chronicles",
             },
         ),
         migrations.CreateModel(
-            name='Event',
+            name="Event",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('datetime', models.DateTimeField(auto_now_add=True)),
-                ('aircraft', models.CharField(max_length=100)),
-                ('unique_id', models.CharField(max_length=255)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("datetime", models.DateTimeField(auto_now_add=True)),
+                ("aircraft", models.CharField(max_length=100)),
+                ("unique_id", models.CharField(max_length=255)),
             ],
             options={
-                'verbose_name': 'Event',
-                'verbose_name_plural': 'Events',
+                "verbose_name": "Event",
+                "verbose_name_plural": "Events",
             },
         ),
     ]

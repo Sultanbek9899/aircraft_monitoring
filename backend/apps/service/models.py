@@ -6,13 +6,10 @@ from django.db import models
 class Chronicle(models.Model):
     OPEN = 1
     CLOSED = 2
-    STATUS_CHOICES = (
-        (OPEN, "Open"),
-        (CLOSED, "Closed")
-    )
+    STATUS_CHOICES = ((OPEN, "Open"), (CLOSED, "Closed"))
     min_timestamp = models.DateTimeField()
     max_timestamp = models.DateTimeField()
-    aircraft = models.CharField(max_length=100  )
+    aircraft = models.CharField(max_length=100)
     status = models.SmallIntegerField(choices=STATUS_CHOICES, default=OPEN)
     unique_id = models.CharField(max_length=255)
     created = models.DateTimeField(auto_now_add=True)
@@ -21,6 +18,9 @@ class Chronicle(models.Model):
     class Meta:
         verbose_name = "Chronicle"
         verbose_name_plural = "Chronicles"
+
+    def __str__(self):
+        return f"{self.aircraft}-{self.unique_id}"
 
 
 class Event(models.Model):
@@ -34,4 +34,3 @@ class Event(models.Model):
 
     def __str__(self):
         return f"{self.unique_id}"
-

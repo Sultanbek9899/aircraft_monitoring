@@ -19,7 +19,6 @@ services:
       - db
     depends_on:
       - db
-      - redis
 
 
   db:

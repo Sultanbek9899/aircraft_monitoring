@@ -3,16 +3,9 @@ from backend.apps.service.models import Event, Chronicle
 
 
 class ChronicleSerializer(serializers.ModelSerializer):
-
     class Meta:
         model = Chronicle
-        fields = [
-            "min_timestamp",
-            "max_timestamp",
-            "status",
-            "aircraft",
-            "unique_id"
-        ]
+        fields = ["min_timestamp", "max_timestamp", "status", "aircraft", "unique_id"]
 
 
 class EventSerializer(serializers.ModelSerializer):
@@ -31,7 +24,6 @@ class ChronicleEventsSerializer(serializers.Serializer):
 
 
 class ChronicleDetailSerializer(serializers.ModelSerializer):
-
     class Meta:
         model = Chronicle
         fields = "__all__"

@@ -6,13 +6,15 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('service', '0001_initial'),
+        ("service", "0001_initial"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='chronicle',
-            name='status',
-            field=models.SmallIntegerField(choices=[(1, 'Open'), (2, 'Closed')], default=1),
+            model_name="chronicle",
+            name="status",
+            field=models.SmallIntegerField(
+                choices=[(1, "Open"), (2, "Closed")], default=1
+            ),
         ),
     ]
