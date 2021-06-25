@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     # packages
     "rest_framework",
     "django_filters",
+    "drf_yasg",
     # apps
     "backend.apps.service",
     "backend.apps.api",

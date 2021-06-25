@@ -4,16 +4,16 @@ ENV PYTHONUNBUFFERED 1
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV TZ=Asia/Bishkek
 
-RUN apk add --no-cache gcc postgresql-dev zlib-dev \
-    libjpeg-turbo-dev gettext linux-headers m make \
-    python3-dev   postgresql-client \
+RUN apk add --no-cache gcc postgresql-dev \
+    linux-headers musl-dev libffi-dev \
+    libxml2-dev libxslt-dev imagemagick-dev \
+    zlib-dev py3-magic  make \
     && rm -rf /var/apt/list/*
-
 WORKDIR /app
 
 COPY requirements ./requirements/
 
-RUN pip install --upgrade pip && pip install -r requirements.txt
+RUN pip install --upgrade pip && pip install -r requirements/development.txt
 
 COPY . .
 

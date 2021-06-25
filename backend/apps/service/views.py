@@ -36,7 +36,6 @@ class ChronicEventsList(APIView):
         try:
             chronicle = Chronicle.objects.get(id=self.kwargs.get("pk"))
         except Chronicle.DoesNotExist:
-            print("1")
             raise Http404
         queryset = (
             Event.objects.filter(
@@ -53,6 +52,20 @@ class ChronicEventsList(APIView):
         data = {}
         serializer = ChronicleSerializer(instance=chronicle)
         serializer2 = ChronicleEventsSerializer(instance=queryset, many=True)
+        date_dictionary = list()
+        for event in serializer2.data:
+            date_dictionary.append(event)
+        print(date_dictionary)
+        days = chronicle.max_timestamp.date()-chronicle.min_timestamp.date()
+        print(days.days)
+        for i in range(0, days.days+2):
+            if chronicle.min_timestamp + timedelta(days=i) not in date_dictionary:
+                date_dictionary.append({
+                    "day": chronicle.min_timestamp,
+                    "total": 0
+                })
+        print(date_dictionary)
+        print(len(date_dictionary))
         data.update(serializer.data)
         data.update({"chronicle_events": serializer2.data})
         return Response(data=data, status=status.HTTP_200_OK)

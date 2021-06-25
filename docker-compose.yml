@@ -12,7 +12,7 @@ services:
       - ./staticfiles:/app/staticfiles
       - ./media:/app/media
     env_file:
-      - .env
+      .env
     ports:
       - 127.0.0.1:8000:8000
     links:
@@ -31,6 +31,7 @@ services:
       POSTGRES_PASSWORD: aircraft2021
       POSTGRES_USER: aircraft_user
       POSTGRES_DB: aircraft
+      POSTGRES_HOST: db
     expose:
       - 5432
 
