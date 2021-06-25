@@ -1,5 +1,3 @@
-[![pipeline status](https://git.socservice.kg/azamattokhtaev/mz-license/badges/master/pipeline.svg)](https://git.socservice.kg/azamattokhtaev/mz-license/-/commits/master)
-[![coverage report](https://git.socservice.kg/azamattokhtaev/mz-license/badges/master/coverage.svg)](https://git.socservice.kg/azamattokhtaev/mz-license/-/commits/master)
 
 
 # Aircraft monitoring system(TEST)
@@ -24,9 +22,10 @@ $ sudo -u postgres createdb aircraft # creating a database with name shashka.
 $ git clone git@github.com:Sultanbek9899/aircraft_monitoring.git && cd mz-license
 $ cp .env.example .env # or see environment variables below.
 $ export $(cat .env | xargs) # to activate environment variables
-$ mkvirtualenv mz-license
+$ mkvirtualenv venv
 $ pip install -r requirements/development.txt
 $ python manage.py migrate # add migration into database.
+$ python manage.py loaddata test_data.json # add migration into database.
 $ python manage.py runserver # run backend.
 ```
 
