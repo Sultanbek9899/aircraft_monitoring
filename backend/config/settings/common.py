@@ -29,7 +29,7 @@ SECRET_KEY = config(
     cast=str
 )
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = config("DEBUG", default=True, cast=bool)
+DEBUG = True
 
 ALLOWED_HOSTS = ['localhost', '127.0.0.1', ]
 

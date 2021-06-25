@@ -7,12 +7,12 @@ class Chronicle(models.Model):
     OPEN = 1
     CLOSED = 2
     STATUS_CHOICES = (
-        ("Open", OPEN),
-        ("Closed", CLOSED)
+        (OPEN, "Open"),
+        (CLOSED, "Closed")
     )
     min_timestamp = models.DateTimeField()
     max_timestamp = models.DateTimeField()
-    aircraft = models.CharField(max_length=100)
+    aircraft = models.CharField(max_length=100  )
     status = models.SmallIntegerField(choices=STATUS_CHOICES, default=OPEN)
     unique_id = models.CharField(max_length=255)
     created = models.DateTimeField(auto_now_add=True)
@@ -24,7 +24,7 @@ class Chronicle(models.Model):
 
 
 class Event(models.Model):
-    datetime = models.DateTimeField(auto_now_add=True)
+    datetime = models.DateTimeField()
     aircraft = models.CharField(max_length=100)
     unique_id = models.CharField(max_length=255)
 

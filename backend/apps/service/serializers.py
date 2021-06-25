@@ -17,9 +17,26 @@ class ChronicleSerializer(serializers.ModelSerializer):
 
 class EventSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Chronicle
+        model = Event
         fields = [
             "datetime",
             "aircraft",
             "unique_id",
         ]
+
+
+class ChronicleEventsSerializer(serializers.Serializer):
+    day = serializers.DateTimeField()
+    total = serializers.IntegerField()
+
+
+class ChronicleDetailSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Chronicle
+        fields = "__all__"
+
+
+class TestChronicleEventSerializer(serializers.Serializer):
+    day = serializers.DateField()
+    total = serializers.IntegerField

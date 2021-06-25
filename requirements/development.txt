@@ -1,0 +1,5 @@
+-r common.txt
+
+pytest==6.2.4
+pytest-django==4.1.0
+black==21.6b0
